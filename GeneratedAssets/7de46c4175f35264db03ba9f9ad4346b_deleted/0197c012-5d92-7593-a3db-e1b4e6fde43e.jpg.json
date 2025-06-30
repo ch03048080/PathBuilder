@@ -1,0 +1,20 @@
+{
+    "asset": "7de46c4175f35264db03ba9f9ad4346b",
+    "fileName": "0197c012-5d92-7593-a3db-e1b4e6fde43e.jpg",
+    "prompt": "크기는 16X16이고, 노란색이나 파란색으로 밝게 빛나는 광석 타일",
+    "negativePrompt": "",
+    "model": "8dcf54e0-c670-4783-a721-57c13529c16c",
+    "modelName": "VFX Hits",
+    "customSeed": -1,
+    "w3CTraceId": "249305ae0c18c6f0da9867e38466fa64",
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0
+}
