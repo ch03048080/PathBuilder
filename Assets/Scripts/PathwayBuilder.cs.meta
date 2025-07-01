@@ -1,2 +1,16 @@
 fileFormatVersion: 2
 guid: afcfcd38aa4777e4eb24dffd65401c5d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - inputActions: {fileID: -944628639613478452, guid: 8d2749cc80eb2954cb2d9df7113f63e8, type: 3}
+  - tilemap: {instanceID: 0}
+  - wallTile: {fileID: 11400000, guid: a22e26373ee30ec439e13d25bfcf1361, type: 2}
+  - resourceTile: {fileID: 11400000, guid: 28e3ef0f48281f941ba2f14dc55bb8a9, type: 2}
+  - emptyTile: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

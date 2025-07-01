@@ -6,7 +6,8 @@ public enum TileType
     Soil,
     Resource,
     Room,
-    Pathway
+    Pathway,
+    Wall
 }
 
 [CreateAssetMenu(fileName = "TileData", menuName = "Scriptable Objects/TileData")]

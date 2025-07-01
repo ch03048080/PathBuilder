@@ -41,6 +41,7 @@ public class MapManager : MonoBehaviour
                 tilemap.SetTile(position, defaultTileData.tile);
             }
         }
+        tileDataManager.MarkEdgesAsWall(tilemap);
     }
     // 방 생성
     void GenerateRoom()

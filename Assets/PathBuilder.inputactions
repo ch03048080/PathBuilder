@@ -1,0 +1,54 @@
+{
+    "name": "PathBuilder",
+    "maps": [
+        {
+            "name": "TilemapControls",
+            "id": "bc945a68-15b3-4fdb-97c6-0228b43b0eef",
+            "actions": [
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "bbdeeec7-8212-4ef8-83ca-1e44f1e9f492",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Position",
+                    "type": "Value",
+                    "id": "ff23662e-06e5-49a2-b5d9-c2fb43b0f6da",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9bdf288d-5dad-4dfb-99a6-5119ff20ab50",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7ae07233-3b58-46a0-ac08-1f4f85e19e02",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
