@@ -13,6 +13,8 @@ public class PathwayBuilder : MonoBehaviour
     public TileBase emptyTile; // 굴 파기 후 사용할 빈 타일
     public Color previewColor = new Color(1f, 1f, 1f, 0.5f); // 미리보기 색상
 
+    public int PathwayCost = 6; // 굴 파기 비용
+
     private InputAction clickAction;
     private InputAction positionAction;
     private Camera mainCamera;
@@ -79,12 +81,13 @@ public class PathwayBuilder : MonoBehaviour
             // 클릭한 위치의 타일 좌표 가져오기
             Vector3Int tilePosition = tilemap.WorldToCell(worldPosition);
 
-            // 타일이 Wall 또는 Resource 타일이 아니고, 이미 미리보기된 타일이 아니면 추가
-            if (!previewTiles.Contains(tilePosition) && tilemap.HasTile(tilePosition))
-            {
+            // 미리보기된 타일이 아니고, 굴파기 비용이 0보다 클 경우 추가
+            if (!previewTiles.Contains(tilePosition) && tilemap.HasTile(tilePosition) && PathwayCost > 0)
+            { 
                 TileBase currentTile = tilemap.GetTile(tilePosition);
-                if (currentTile != wallTile && currentTile != resourceTile)
+                if (currentTile != wallTile && currentTile != resourceTile)//타일이 Wall 또는 Resource 타일이 아니면 
                 {
+                    PathwayCost--; // 굴파기 비용 차감
                     previewTiles.Add(tilePosition);
                     SetTilePreview(tilePosition);
                 }
