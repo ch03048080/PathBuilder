@@ -5,8 +5,8 @@ using UnityEngine.UIElements;
 
 public class MapView : MonoBehaviour
 {
-    [SerializeField] public Tilemap Tilemap;
     [SerializeField] private TileDataManager tileDataManager;
+    public Tilemap Tilemap;
     private TileData defaultTileData;
     private TileData roomTileData;
     private TileData resourceTileData;
@@ -54,21 +54,18 @@ public class MapView : MonoBehaviour
     {
         Tilemap.SetTile(position, defaultTileData.tile);
         Tilemap.RefreshAllTiles();
-        Debug.LogError("己 持失");
     }
 
     public void GenerateRoom(Vector3Int position)
     {
         Tilemap.SetTile(position, roomTileData.tile);
         Tilemap.RefreshAllTiles();
-        Debug.LogError("号 持失");
     }
 
     public void GenerateResource(Vector3Int position)
     {
         Tilemap.SetTile(position, resourceTileData.tile);
         Tilemap.RefreshAllTiles();
-        Debug.LogError("切据 持失");
     }
 
     public void RefreshAllTiles()

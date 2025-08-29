@@ -5,7 +5,7 @@ public class MapPresenter : MonoBehaviour
 {
     [SerializeField] private MapView mapView;
     [SerializeField] private TileDataManager tileDataManager;
-    [SerializeField] public Tilemap tilemap;
+    public Tilemap tilemap;
     int mapWidth = 32;  // 맵의 가로 크기
     int mapHeight = 18; // 맵의 세로 크기
 
@@ -44,7 +44,7 @@ public class MapPresenter : MonoBehaviour
         int roomHeight = 3;
 
         mapModel.RoomX = Random.Range(-mapModel.mapWidth / 4, mapModel.mapWidth / 4 - roomWidth);
-        mapModel.RoomY = Random.Range(-mapModel.mapWidth / 4, mapModel.mapWidth / 4 - roomHeight);
+        mapModel.RoomY = Random.Range(-mapModel.mapWidth / 9, mapModel.mapWidth / 9 - roomHeight);
 
 
         for (int x = 0; x < roomWidth; x++)
@@ -58,18 +58,18 @@ public class MapPresenter : MonoBehaviour
 
     }
 
-    private void GenerateResource()
+    private void GenerateResource() // Room 주변에 자원 배치
     {
 
         int resourceX = Random.Range(mapModel.RoomX - 4, mapModel.RoomX + 9);
-        int resourceY = Random.Range(1, 3);
+        int resourceY;
 
-        if (resourceY == 1) resourceY = mapModel.RoomY - 4;
-        else resourceY = mapModel.RoomY + 7;
+        if (Random.Range(1, 3) == 1) resourceY = mapModel.RoomY - 2;
+        else resourceY = mapModel.RoomY + 5;
 
         if (resourceX == mapModel.RoomX - 4 || resourceX == mapModel.RoomX + 9)
         {
-            resourceY = Random.Range(mapModel.RoomY - 4, mapModel.RoomY + 8);
+            resourceY = Random.Range(mapModel.RoomY - 2, mapModel.RoomY + 5);
         }
 
         Vector3Int position = new Vector3Int(resourceX, resourceY, 0);

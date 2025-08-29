@@ -372,6 +372,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84e075348e5fc140ae23bd2cce798a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &596182798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 596182799}
+  m_Layer: 0
+  m_Name: TunnelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &596182799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596182798}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2065467398}
+  - {fileID: 1244042732}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &762367558
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,8 +519,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7012bc44014af443ac994037af1aee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapView
-  Tilemap: {fileID: 1424299987}
   tileDataManager: {fileID: 11400000, guid: 49c0738f5fb541141bd0928a1f435a61, type: 2}
+  Tilemap: {fileID: 1424299987}
+--- !u!1 &1244042731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244042732}
+  - component: {fileID: 1244042733}
+  m_Layer: 0
+  m_Name: TunnelPresenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1244042732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244042731}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 596182799}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1244042733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244042731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd6717f81ffcbb84186838892618ac12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TunnelPresenter
+  inputActions: {fileID: -944628639613478452, guid: 8d2749cc80eb2954cb2d9df7113f63e8, type: 3}
+  view: {fileID: 2065467399}
+  wallTile: {fileID: 11400000, guid: b41630e1fff77fb49b7e0f5569d6f977, type: 2}
+  resourceTile: {fileID: 11400000, guid: 28e3ef0f48281f941ba2f14dc55bb8a9, type: 2}
+  initialCost: 7
 --- !u!1 &1415446043
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +595,7 @@ Transform:
   m_GameObject: {fileID: 1415446043}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.70888, y: 0.79694, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -801,7 +883,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1622926644}
-  - component: {fileID: 1622926643}
   m_Layer: 0
   m_Name: Pathway
   m_TagString: Untagged
@@ -809,25 +890,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1622926643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622926642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afcfcd38aa4777e4eb24dffd65401c5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PathwayBuilder
-  inputActions: {fileID: -944628639613478452, guid: 8d2749cc80eb2954cb2d9df7113f63e8, type: 3}
-  tilemap: {fileID: 1424299987}
-  wallTile: {fileID: 11400000, guid: b41630e1fff77fb49b7e0f5569d6f977, type: 2}
-  resourceTile: {fileID: 11400000, guid: 28e3ef0f48281f941ba2f14dc55bb8a9, type: 2}
-  emptyTile: {fileID: 0}
-  previewColor: {r: 1, g: 1, b: 1, a: 0.5}
-  PathwayCost: 6
 --- !u!4 &1622926644
 Transform:
   m_ObjectHideFlags: 0
@@ -837,7 +899,7 @@ Transform:
   m_GameObject: {fileID: 1622926642}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.70888, y: 0.79694, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -888,6 +950,53 @@ Transform:
   - {fileID: 1424299985}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2065467397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2065467398}
+  - component: {fileID: 2065467399}
+  m_Layer: 0
+  m_Name: TunnelView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2065467398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065467397}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 596182799}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2065467399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065467397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198e95dbcf1fb8e4db2bb9b313eb7f6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TunnelView
+  tilemap: {fileID: 1424299987}
+  emptyTile: {fileID: 0}
+  previewColor: {r: 1, g: 1, b: 1, a: 0.5}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -899,3 +1008,4 @@ SceneRoots:
   - {fileID: 1619085553}
   - {fileID: 1415446044}
   - {fileID: 1622926644}
+  - {fileID: 596182799}

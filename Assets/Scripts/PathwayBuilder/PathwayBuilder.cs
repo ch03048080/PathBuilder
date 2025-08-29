@@ -13,7 +13,7 @@ public class PathwayBuilder : MonoBehaviour
     public TileBase emptyTile; // 굴 파기 후 사용할 빈 타일
     public Color previewColor = new Color(1f, 1f, 1f, 0.5f); // 미리보기 색상
 
-    public int PathwayCost = 6; // 굴 파기 비용
+    public int PathwayCost = 7; // 굴 파기 비용
 
     private InputAction clickAction;
     private InputAction positionAction;
