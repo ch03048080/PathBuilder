@@ -5,18 +5,15 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(fileName = "TileDataManager", menuName = "Scriptable Objects/TileDataManager")]
 public class TileDataManager : ScriptableObject
 {
-    public List<TileData> tileDataList = new List<TileData>(); //타일 데이터 저장 리스트
+    public List<TileData> tileDataList = new List<TileData>(); 
 
-    // TileType으로 타일 데이터를 검색
     public TileData GetTileDataByType(TileType tileType)
     {
         return tileDataList.Find(data => data.tileType == tileType);
     }
 
-    // 맵의 테두리를 Wall로 설정하는 함수
     public void MarkEdgesAsWall(Tilemap tilemap)
     {
-        // Wall 타일 데이터 가져오기
         TileData wallTileData = GetTileDataByType(TileType.Wall);
         if (wallTileData == null || wallTileData.tile == null)
         {
@@ -26,10 +23,8 @@ public class TileDataManager : ScriptableObject
 
         TileBase wallTile = wallTileData.tile;
 
-        // 타일맵의 경계 계산
         BoundsInt bounds = tilemap.cellBounds;
 
-        // 경계의 x, y 좌표만 처리
         for (int x = bounds.xMin; x <= bounds.xMax; x++)
         {
             tilemap.SetTile(new Vector3Int(x, bounds.yMin, 0), wallTile);

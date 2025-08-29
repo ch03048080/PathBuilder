@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.InputSystem;
+// 굴파기 시스템 구현
 public class PathwayBuilder : MonoBehaviour
 {
 
@@ -9,7 +10,7 @@ public class PathwayBuilder : MonoBehaviour
     public Tilemap tilemap; // 타일맵 참조
     public TileBase wallTile; // Wall 타일
     public TileBase resourceTile; // Resource 타일
-    public TileBase emptyTile; // 굴 파기 후 사용할 빈 타일 (null로 설정 가능)
+    public TileBase emptyTile; // 굴 파기 후 사용할 빈 타일
     public Color previewColor = new Color(1f, 1f, 1f, 0.5f); // 미리보기 색상
 
     private InputAction clickAction;
@@ -93,14 +94,12 @@ public class PathwayBuilder : MonoBehaviour
 
     private void SetTilePreview(Vector3Int tilePosition)
     {
-        // 타일맵의 색상을 변경하여 미리보기 표시
         tilemap.SetTileFlags(tilePosition, TileFlags.None); // 타일 플래그 초기화
         tilemap.SetColor(tilePosition, previewColor); // 미리보기 색상 적용
     }
 
     private void ClearPreviewTiles()
     {
-        // 미리보기로 설정된 타일 색상 초기화
         foreach (var tilePosition in previewTiles)
         {
             if (tilemap.HasTile(tilePosition))

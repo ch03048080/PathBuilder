@@ -1,5 +1,5 @@
 using UnityEngine;
-
+// 개미 시스템 관리
 public class AntManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created

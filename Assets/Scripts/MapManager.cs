@@ -1,7 +1,9 @@
+//using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Tilemaps;
-
+using UnityEngine.UIElements;
+// 맵 생성 및 관리
 public class MapManager : MonoBehaviour
 {
     public Tilemap tilemap; // 타일맵 컴포넌트
@@ -10,13 +12,15 @@ public class MapManager : MonoBehaviour
     public int mapWidth = 32;  // 맵의 가로 크기
     public int mapHeight = 18; // 맵의 세로 크기
 
+    int roomX, roomY; // 방 위치
+
     void Start()
     {
         GenerateMap();
         GenerateRoom();
         GenerateResources();
     }
-
+    
 
     //맵 생성
     void GenerateMap()
@@ -51,8 +55,8 @@ public class MapManager : MonoBehaviour
         int roomHeight = 3;
 
         // 방의 랜덤 위치 계산 (맵의 중심에서 크게 벗어나지 않도록 제한)
-        int roomX = Random.Range(-mapWidth / 4, mapWidth / 4 - roomWidth);
-        int roomY = Random.Range(-mapHeight / 4, mapHeight / 4 - roomHeight);
+        roomX = Random.Range(-mapWidth / 4, mapWidth / 4 - roomWidth);
+        roomY = Random.Range(-mapHeight / 4, mapHeight / 4 - roomHeight);
 
         // 방 타일 데이터 가져오기
         TileData roomTileData = tileDataManager.GetTileDataByType(TileType.Room);
@@ -61,21 +65,22 @@ public class MapManager : MonoBehaviour
             Debug.LogError("Room tile data is missing in TileDataManager!");
             return;
         }
-
+        Debug.Log($"roomX roomY tile set at position {roomX}.{roomY}");
         // 방 생성
         for (int x = 0; x < roomWidth; x++)
         {
-            for (int y = 0; y < roomHeight; y++)
+            for(int y = 0; y < roomHeight; y++)
             {
                 Vector3Int position = new Vector3Int(roomX + x, roomY + y, 0);
                 tilemap.SetTile(position, roomTileData.tile);
-                Debug.Log($"Room tile set at position {position}");
+                Debug.Log($"room tile set at position {position}");
             }
         }
+        
         // 타일맵 갱신
         //tilemap.RefreshAllTiles(); 
     }
-
+    // 자원 타일 생성
     void GenerateResources()
     {
         // 자원 타일 데이터 가져오기
@@ -86,10 +91,18 @@ public class MapManager : MonoBehaviour
             return;
         }
 
-        // 자원 타일을 랜덤한 위치에 배치
-        int resourceX = Random.Range(-mapWidth / 2 + 5, mapWidth / 2 - 5);
-        int resourceY = Random.Range(-mapHeight / 2 + 5, mapHeight / 2 - 5);
+        // 자원 타일 배치 (방 기준 4칸 이내 랜덤 위치)
+        int resourceX = Random.Range(roomX - 4, roomX + 9);
+        int resourceY = Random.Range(1, 3);
+        
+        if(resourceY==1) resourceY = roomY - 4;
+        else resourceY = roomY + 7;
 
+        if (resourceX == roomX - 4 || resourceX == roomX + 9)
+        {
+            resourceY = Random.Range(roomY - 4,roomY +8);
+        }
+        
         Vector3Int position = new Vector3Int(resourceX, resourceY, 0);
         tilemap.SetTile(position, resourceTileData.tile);
         Debug.Log($"Resources tile set at position {position}");

@@ -1,7 +1,7 @@
 using System.Resources;
 using Unity.VisualScripting;
 using UnityEngine;
-
+// 霸烙 概聪历 包府 (教臂沛)
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
